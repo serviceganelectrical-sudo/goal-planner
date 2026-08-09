@@ -11,10 +11,10 @@ streamlit run streamlit_app.py
 
 ## Core (portable)
 
-Same planning logic for Python, JS, and HTTP:
+Same planning logic for Python, CLI, and HTTP:
 
-- `goal_engine.py` — Python core
-- `core/goal_engine.js` — JavaScript core
+- `goal_engine.py` — public Python API
+- `ge_models.py` / `ge_capacity.py` / `ge_plan.py` — engine internals
 - `main.py` — CLI (`python main.py --demo --pretty`)
 
 ## Project layout
@@ -22,14 +22,16 @@ Same planning logic for Python, JS, and HTTP:
 | File | Role |
 |------|------|
 | `streamlit_app.py` | Streamlit UI |
-| `goal_engine.py` | Planning engine |
+| `streamlit_helpers.py` | Streamlit UI helpers |
+| `goal_engine.py` | Planning engine (public API) |
+| `ge_models.py` / `ge_capacity.py` / `ge_plan.py` | Engine internals |
 | `storage.py` | Local text-file storage |
 | `app.py` | Optional stdlib HTTP server |
 | `requirements.txt` | Python deps |
 
 ## Deploy (Streamlit Community Cloud)
 
-1. Push this repo to GitHub
-2. In [share.streamlit.io](https://share.streamlit.io) → **New app**
-3. Select the repo, branch `main`, main file `streamlit_app.py`
+1. Open [share.streamlit.io](https://share.streamlit.io) → **New app**
+2. Select repo `serviceganelectrical-sudo/goal-planner`, branch `main`
+3. Main file path: `streamlit_app.py`
 4. Deploy
